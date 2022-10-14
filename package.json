@@ -12,8 +12,25 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.3",
+    "@headlessui/react": "^1.7.3",
+    "@radix-ui/react-context-menu": "^1.0.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.7",
     "electron-serve": "^1.1.0",
-    "electron-store": "^8.1.0"
+    "electron-store": "^8.1.0",
+    "flowbite": "^1.5.3",
+    "flowbite-react": "^0.2.0",
+    "framer-motion": "^7.5.3",
+    "nanoid": "^4.0.0",
+    "react-icons": "^4.4.0",
+    "react-recipes": "^1.4.0",
+    "react-toastify": "^9.0.8",
+    "react-use": "^17.4.0",
+    "recharts": "^2.1.15",
+    "sass": "^1.55.0"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
