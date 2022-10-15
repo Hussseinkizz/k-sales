@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  .body-surface {
     @apply bg-gray-900 text-white;
   }
 }
@@ -13,3 +13,319 @@
     @apply text-white font-bold px-4 py-2 rounded bg-blue-600 hover:bg-blue-500;
   }
 }
+
+/* my tailwind utilities */
+@layer utilities {
+  ._bg-blue-gradient {
+    @apply bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600
+  }
+  
+  ._bg-blue-gradient.to-top {
+    @apply bg-gradient-to-t from-blue-600 via-blue-500 to-blue-600
+  }
+  
+  ._flex-is-row {
+    @apply flex flex-row items-center
+  }
+  
+  ._flex-is-column {
+    @apply flex flex-col items-center
+  }
+  
+  ._link-hover {
+    @apply hover: text-blue-600 transition-colors ease-linear
+  }
+  
+  ._surface-design {
+    @apply bg-white rounded-lg shadow-md
+  }
+}
+
+/* my custom css */
+.bg-svg-pattern {
+  background-color: #f9fafb;
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.search-results-custom::-webkit-scrollbar {
+  display: none;
+}
+
+/* custom spacer */
+.vertical-spacer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+}
+
+.horizontal-spacer {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex: 1 1 100%;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* custom min height */
+.min-h-custom {
+  min-height: 70vh;
+}
+
+/* custom page gutter top & bottom */
+.custom-padding-top {
+  /* padding-top: 3.5rem; */
+  padding-top: 4.5rem;
+}
+
+.custom-padding-bottom {
+  /* padding-bottom: 3.5rem; */
+  padding-bottom: 6.5rem;
+}
+
+/* handle content scrolling */
+.scrollable {
+  scroll-behavior: smooth;
+  overflow-y: visible;
+  overflow-wrap: break-word;
+}
+
+/* sm devices query */
+@media (min-width: 640px) {
+  .media-scroller {
+    grid-auto-columns: 28%;
+  }
+}
+
+._swiper-content-padding {
+  padding-inline: 18%;
+}
+
+/* md devices query */
+@media (min-width: 768px) {
+  ._show-on-md {
+    display: flex;
+  }
+
+  ._not-fixed-on-md {
+    position: relative;
+    z-index: auto;
+  }
+
+  ._handle-swiper-height {
+    height: 28rem;
+  }
+
+  .media-scroller {
+    grid-auto-columns: 21%;
+  }
+}
+
+/* only for mobile */
+@media (max-width: 768px) {
+  ._fixed-on-mobile {
+    position: fixed;
+    /* fixed */
+    z-index: 50;
+    /* z-50 */
+  }
+
+  ._fixed-on-mobile+main {
+    padding-top: 6rem;
+    /* pt-24 */
+  }
+
+  main {
+    padding-block: 6vh;
+    /* pt-24 */
+  }
+}
+
+/* custom animations */
+@keyframes pulse-custom {
+  50% {
+    opacity: .90;
+  }
+}
+
+.animate-custom-pulse {
+  animation: pulse-custom 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/*  swiper css */
+:root {
+  --swiper-theme-color: #fb923c;
+  --brand-accent-color: #fb923c;
+  --res-spacer: 2vw;
+  --containers-color: hsl(0deg 0% 10%);
+
+}
+
+.swiper-pagination-bullet {
+  background: white !important;
+  opacity: 0.75 !important;
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--brand-accent-color) !important;
+  opacity: 1 !important;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+/* Swiper custom css */
+._slider {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white !important;
+  opacity: 0.5;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  opacity: 1;
+  transition: all .3s ease;
+  color: orange !important;
+}
+
+/* Media Scoller Styles */
+.media-scroller {
+  display: grid;
+  gap: var(--res-spacer);
+  grid-auto-flow: column;
+  grid-auto-columns: 88%;
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 0 var(--res-spacer) var(--res-spacer);
+}
+
+.media-item {
+  padding: 0.5rem;
+  background: var(--containers-color);
+  border-radius: 4px;
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: min-content;
+  /* add some shadows */
+}
+
+.media-item-image {
+  inline-size: 100% !important;
+  aspect-ratio: 16/9 !important;
+  object-fit: cover !important;
+}
+
+.snaps-inline {
+  scroll-behavior: smooth;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: var(--res-spacer);
+}
+
+.snaps-inline>* {
+  scroll-snap-align: start;
+}
+
+
+/*========== CUSTOM SCROLL BAR ==========*/
+html {
+  --hue-color: 230;
+  /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+  /* Change favorite color */
+  --text-color-light: hsl(var(--hue-color), 8%, 65%);
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+}
+
+/* ::-webkit-scrollbar {
+  width: .50rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: .5rem; */
+  /* Add smooth scrolling */
+  /* scroll-behavior: smooth;
+} */
+
+/* ::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: .5rem;
+} */
+
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+} */
+
+/* Scrollable class scrollbar */
+.scrollable::-webkit-scrollbar {
+  width: .60rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: .3rem;
+  /* Add smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: .3rem;
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+}
+
+
+/* Default thin scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 12px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: var(--scroll-thumb-color);
+  border: 2px solid var(--scroll-bar-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+}
+
+/* ::-moz-selection {
+  background-color: #f3f4f6;
+  text-shadow: 1px 1px 10px rgba(42, 53, 64, 0.4);
+  border-radius: 4px;
+}
+
+::selection {
+  background-color: #f3f4f6;
+  text-shadow: 1px 1px 10px rgba(42, 53, 64, 0.4);
+  border-radius: 4px;
+} */
